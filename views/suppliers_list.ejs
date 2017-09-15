@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Suppliers</title>
+  </head>
+  <body>
+    <h1>List Suppliers</h1>
+    <a href="/">return to home</a><br><br>
+    <a href="/suppliers/add"><button type="button" name="button">Add Suppliers</button></a>
+    <table>
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Kota</th>
+        <th>List Items</th>
+        <th>Add Items</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr>
+          <%if (data){data.forEach(rows=>{%>
+            <td><%rows.id%></td>
+            <td><%rows.name%></td>
+            <td><%=rows.kota%></td>
+            <td>list items</td>
+            <td>add items</td>
+            <td>
+              <a href="/suppliers/edit/<%=rows.id%>">Edit</a>
+              <a href="">|</a>
+              <a onclick="javascript:return confirm('Anda yakin akan menghapus data ini?')" href="/suppliers/delete/<%=rows.id%>">Delete</a>
+            </td>
+          <%})}%>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
