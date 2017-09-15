@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Suppliers</title>
+  </head>
+  <body>
+    <h1>Add Suppliers</h1>
+    <a href="/suppliers">return to suppliers</a><br><br>
+    <form class="" action="/suppliers/edit/<%=data.id%>" method="post">
+      Name : <br>
+      <input type="text" name="name" value="<%=data.name%>"><br>
+      Kota : <br>
+      <input type="text" name="kota" value="<%=data.kota%>"><br><br>
+      <select class="" name="ItemId">
+        <%if (dataItems){dataItems.forEach(rows=>{%>
+          <option value="<%=rows.id%>"><%=rows.name%></option>
+        <%})}%>
+      </select>
+
+      <button type="submit">Submit</button>
+      <a href="/suppliers"><button type="submit">Cancel</button></a>
+    </form>
+  </body>
+</html>

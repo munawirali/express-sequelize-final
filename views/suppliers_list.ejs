@@ -18,20 +18,27 @@
         <th>Actions</th>
       </thead>
       <tbody>
+        <%if (data){data.forEach(rows=>{%>
         <tr>
-          <%if (data){data.forEach(rows=>{%>
-            <td><%rows.id%></td>
-            <td><%rows.name%></td>
+            <td><%=rows.id%></td>
+            <td><%=rows.name%></td>
             <td><%=rows.kota%></td>
-            <td>list items</td>
-            <td>add items</td>
+            <!-- <td>list items</td> -->
+            <td>
+              <%if (rows.Items.length>0){rows.Items.forEach(rowsItem=>{%>
+                <%=rowsItem.name%>
+              <%})} else {%>
+                No item yet
+              <%}%>
+            </td>
+            <td><a href="/suppliers/<%=rows.id%>/additem"><button type="button">Assign Item</button></a></td>
             <td>
               <a href="/suppliers/edit/<%=rows.id%>">Edit</a>
               <a href="">|</a>
               <a onclick="javascript:return confirm('Anda yakin akan menghapus data ini?')" href="/suppliers/delete/<%=rows.id%>">Delete</a>
             </td>
-          <%})}%>
         </tr>
+        <%})}%>
       </tbody>
     </table>
   </body>
